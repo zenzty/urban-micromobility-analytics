@@ -1,6 +1,14 @@
+# virtual environments
+.venv/
+
 # env
 .env
 *.env.local
 
 # pycharm
 .idea/*
+.vscode
+
+# data files
+data/*
+!data/.gitkeep

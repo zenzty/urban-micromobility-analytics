@@ -1,0 +1,103 @@
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+# [build-system] allows you to declare which build backend you use
+# and which other dependencies are needed to build your project.
+[build-system]
+# https://github.com/pypa/hatch
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# [project] is the format that most build backends use
+# to specify your project’s basic metadata, such as the dependencies, your name, etc.
+[project]
+name = "visual-analytics"
+version = "0.1.0"
+description = "Interactive visual analytics dashboard"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "panel>=1.5.0",
+    "holoviews>=1.19.0",
+    "hvplot>=0.11.0",
+    "plotly>=5.24.0",
+    "bokeh>=3.6.0",
+    "pandas>=2.2.0",
+    "pyarrow>=17.0.0",
+    "pandera>=0.20.0",
+    "pydantic-settings>=2.5.0",
+]
+
+# [dependency-groups] specifies dependencies for development tasks such as testing and linting.
+# See the Dependency Groups specification: https://packaging.python.org/en/latest/specifications/dependency-groups/#dependency-groups
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.7.0",
+    "mypy>=1.13.0",
+    "pre-commit>=4.0.0",
+    "jupyterlab>=4.2.0",
+    "pandas-stubs>=2.2.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/visual_analytics"]
+
+[tool.ruff]
+# The line length to use when enforcing long-lines violations and at which isort and the formatter prefers to wrap lines.
+# https://docs.astral.sh/ruff/settings/#line-length
+line-length = 100
+# The minimum Python version to target
+# Ruff will not propose changes using features that are not available in the given version.
+# https://docs.astral.sh/ruff/settings/#target-version
+target-version = "py312"
+# The directories to consider when resolving first- vs. third-party imports.
+# https://docs.astral.sh/ruff/settings/#src
+src = ["src", "tests"]
+
+# Ruff's linter uses Flake8-style rule codes.
+# The prefix indicates the source of the rule.
+[tool.ruff.lint]
+select = [
+    # https://docs.astral.sh/ruff/default-rules/#pydocstyle-d
+    # "D",
+    # https://docs.astral.sh/ruff/default-rules/#pycodestyle-e-w
+    "E",
+    "W",
+    # https://docs.astral.sh/ruff/default-rules/#pyflakes-f
+    "F",
+    # https://docs.astral.sh/ruff/default-rules/#isort-i
+    "I",
+    # https://docs.astral.sh/ruff/default-rules/#flake8-bugbear-b
+    "B",
+    # https://docs.astral.sh/ruff/default-rules/#pyupgrade-up
+    "UP",
+    # https://docs.astral.sh/ruff/default-rules/#pep8-naming-n
+    "N",
+    # https://docs.astral.sh/ruff/default-rules/#flake8-simplify-sim
+    "SIM"
+]
+
+# https://mypy.readthedocs.io/en/stable/index.html
+[tool.mypy]
+python_version = "3.12"
+# Shows a warning when returning a value with type Any from a function declared with a non-Any return type.
+warn_return_any = true
+# Warns about per-module sections in the config file that do not match any files processed when invoking mypy.
+warn_unused_configs = true
+# Disallows defining functions without type annotations or with incomplete type annotations
+disallow_untyped_defs = true
+# Suppresses error messages about imports that cannot be resolved.
+ignore_missing_imports = true
+
+# https://docs.pytest.org/en/7.1.x/contents.html
+[tool.pytest.ini_options]
+# Sets list of directories that should be searched for tests when no specific directories,
+# files or test ids are given in the command line when executing pytest from the rootdir directory.
+testpaths = ["tests"]
+# Sets list of directories that should be added to the python search path.
+pythonpath = ["src"]
+# Add the specified OPTS to the set of command line arguments as if they had been specified by the user.
+# ra = report all
+# q = quiet
+addopts = "-ra -q"
