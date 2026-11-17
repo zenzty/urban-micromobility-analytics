@@ -7,7 +7,7 @@ DATA_DIR: Path = PROJECT_ROOT / "data"
 
 
 class AppSettings(BaseSettings):
-    app_title: str = "Visual Analytics Dashboard"
+    app_title: str = "Urban Micromobility Analytics"
 
     model_config = SettingsConfigDict(
         env_file=PROJECT_ROOT / ".env",

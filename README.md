@@ -1,3 +1,3 @@
-# Visual Analytics Project
+# Urban Micromobility Analytics
 
 Interactive data visualization dashboard

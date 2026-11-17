@@ -1,4 +1,4 @@
-from visual_analytics.config import DATA_DIR, PROJECT_ROOT
+from micromobility_analytics.config import DATA_DIR, PROJECT_ROOT
 
 
 def test_project_paths_exist() -> None:

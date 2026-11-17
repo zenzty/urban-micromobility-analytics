@@ -10,7 +10,7 @@ build-backend = "hatchling.build"
 # [project] is the format that most build backends use
 # to specify your project’s basic metadata, such as the dependencies, your name, etc.
 [project]
-name = "visual-analytics"
+name = "urban-micromobility-analytics"
 version = "0.1.0"
 description = "Interactive visual analytics dashboard"
 readme = "README.md"
@@ -41,7 +41,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/visual_analytics"]
+packages = ["src/micromobility_analytics"]
 
 [tool.ruff]
 # The line length to use when enforcing long-lines violations and at which isort and the formatter prefers to wrap lines.
