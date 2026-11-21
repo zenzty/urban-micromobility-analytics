@@ -35,6 +35,10 @@ _CATEGORY_ORDERS: dict[str, list[str]] = {
     "rideable_type": list(RIDEABLE_TYPES),
 }
 
+_COHORT_AXIS_LABELS: dict[str, str] = {
+    "weather_regime": "Weather Conditions",
+}
+
 
 def build_split_violin_figure(
     sampled_trips_df: pd.DataFrame,
@@ -77,7 +81,7 @@ def build_split_violin_figure(
         color = palette[split_val]
         fig.add_trace(
             go.Violin(
-                x="Weather Conditions",
+                x=sub[x_cohort].astype("string"),
                 y=sub[metric],
                 legendgroup=split_val,
                 scalegroup=split_val,
@@ -110,7 +114,7 @@ def build_split_violin_figure(
     )
     if x_cohort in _CATEGORY_ORDERS:
         fig.update_xaxes(
-            title_text=x_cohort.replace("_", " ").title(),
+            title_text=_COHORT_AXIS_LABELS.get(x_cohort, x_cohort.replace("_", " ").title()),
             categoryorder="array",
             categoryarray=_CATEGORY_ORDERS[x_cohort],
         )
