@@ -1,5 +1,3 @@
-"""Tests for central configuration and filesystem path constants."""
-
 from micromobility_analytics.config import (
     DATA_DIR,
     PROCESSED_DATA_DIR,
