@@ -12,3 +12,7 @@
 # data files
 data/*
 !data/.gitkeep
+
+# python cache
+__pycache__/
+*.py[cod]
