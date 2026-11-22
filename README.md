@@ -44,7 +44,7 @@ Hourly ridership heatmap across temperature and time of day (normalized by obser
 
 | Tag | Question | Key Finding (2024 Seasonal Dataset) |
 | :--- | :--- | :--- |
-| **`Q1`** | **First/Last-Mile Transit Integration** | **79.2%** of trips start or end within `<= 350m` of a PATH, NJ Transit Light Rail, or Ferry terminal (`27.5%` first-mile to transit, `27.0%` hub-to-hub connectors, `24.7%` last-mile from transit). |
+| **`Q1`** | **First/Last-Mile Transit Integration** | **79.2%** of trips start or end within `<= 350m` of a PATH, NJ Transit Light Rail, or Ferry terminal (`27.5%` first-mile to transit, `27.0%` last-mile from transit, `24.7%` hub-to-hub connectors). |
 | **`Q2`** | **Weather Impact on Ridership** | Normalizing by observed weather hours, `Member` classic-bike demand stays at **66.6%** of its `Clear/Dry` hourly rate during `Light Rain` and **34.8%** during `Heavy Rain/Snow`, whereas `Casual` classic-bike demand drops to **22.5%**. |
 | **`Q3`** | **Neighborhood Transit Equity** | Stations in `High Need` tracts (`14` docks; median income `$54.3k - $69.4k`) average **1,023m** from rapid transit hubs (vs. **449m** in `Affluent` waterfront areas) and show the highest **e-bike share (73.4%** vs. **52.4%** in `Affluent` tracts) to cover longer distances to transit. |
 | **`Q4`** | **E-Bike vs. Classic Bike Usage** | Electric bikes account for **58.1%** of fleet rides and maintain higher median speeds and longer trip distances on uphill routes toward Journal Square, The Heights, and McGinley Square. |

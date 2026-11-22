@@ -449,7 +449,7 @@ def build_methodology_and_audit_tab() -> pn.Column:
         (
             "| `DQ-01` | `ended_at <= started_at`, duration outside `[1, 240]` min, "
             "or prior-month spillover | Removes false starts (< 60s), unreturned bikes (> 4h), "
-            "and 16 midnight spillover rows | **3,454** (`0.96%`) |"
+            "and 17 prior-month spillover rows | **3,454** (`0.96%`) |"
         ),
         (
             "| `DQ-02` | Missing `start_station_id`, `end_station_id`, or station names | "
@@ -458,8 +458,8 @@ def build_methodology_and_audit_tab() -> pn.Column:
         ),
         (
             "| `DQ-03` | Coordinates outside Hudson County (`[40.68, 40.77, -74.11, -74.015]`) "
-            "or non-`JC`/`HB` station IDs | Removes GPS `(0.0, 0.0)` errors and "
-            "959 cross-river NYC drop-offs | **970** (`0.27%`) |"
+            "or non-`JC`/`HB` station IDs | Removes out-of-bounds coordinates and "
+            "970 cross-river NYC station trips | **970** (`0.27%`) |"
         ),
         (
             "| `DQ-04` | Straight-line speed `mean_speed_kmh > 45.0` | "
@@ -474,7 +474,7 @@ def build_methodology_and_audit_tab() -> pn.Column:
         (
             "- **`Q1` - Transit Integration**: **79.2%** of trips start or end within "
             "`<= 350m` of a PATH, Light Rail, or Ferry stop (`27.5%` First-Mile "
-            "to Transit, `27.0%` Hub-to-Hub Connectors, `24.7%` Last-Mile from Transit)."
+            "to Transit, `27.0%` Last-Mile from Transit, `24.7%` Hub-to-Hub Connectors)."
         ),
         (
             "- **`Q2` - Weather Impact**: Accounting for how many hours each weather type occurs, "
@@ -490,9 +490,10 @@ def build_methodology_and_audit_tab() -> pn.Column:
             "areas) to cover longer distances to transit."
         ),
         (
-            "- **`Q4` - E-Bike vs. Classic Bike Usage**: E-bikes maintain higher median speeds "
-            "and longer trip distances on uphill routes toward Journal Square, The Heights, "
-            "and McGinley Square."
+            "- **`Q4` - E-Bike vs. Classic Bike Usage**: E-bikes account for **58.1%** of "
+            "fleet rides and maintain higher median speeds (`12.9` vs. `8.6 km/h`) and "
+            "longer median distances (`1.24` vs. `1.00 km`) on uphill routes toward "
+            "Journal Square, The Heights, and McGinley Square."
         ),
     ]
     return pn.Column(

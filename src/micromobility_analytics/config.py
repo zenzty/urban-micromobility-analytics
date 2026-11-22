@@ -21,12 +21,12 @@ class AppSettings(BaseSettings):
     jc_centroid_lat: float = 40.7282
     jc_centroid_lon: float = -74.0776
     timezone: str = "America/New_York"
-    # Eliminates GPS 0.0, 0.0 errors and 959 cross-river Manhattan/Brooklyn ferry/rebalancing
-    # drop-offs that would otherwise be falsely snapped to Hudson County Census tracts.
+    # Eliminates out-of-bounds GPS errors and 970 cross-river NYC station trips
+    # that would otherwise be falsely snapped to Hudson County Census tracts.
     metro_bbox: tuple[float, float, float, float] = (40.68, 40.77, -74.11, -74.015)
     valid_station_prefixes: tuple[str, ...] = ("JC", "HB")
     # Filters false starts/dock-bounces (< 60s), timestamp glitches, lost-bike outliers (> 4h),
-    # and 16 prior-month midnight-boundary spillover rows that otherwise distort monthly cohorts
+    # and 17 prior-month midnight-boundary spillover rows that otherwise distort monthly cohorts
     # and the 123-day trips_per_day denominator.
     min_trip_duration_min: float = 1.0
     max_trip_duration_min: float = 240.0
